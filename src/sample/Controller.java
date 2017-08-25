@@ -23,6 +23,16 @@ public class Controller implements Initializable {
     @FXML
     private Label isConnected;
 
+    @FXML
+    private TableView<UserDetails> tableUser;
+    @FXML
+    private TableColumn<UserDetails, String> column_name;
+
+    @FXML
+    private Button btnLoad;
+
+    private ObservableList<UserDetails> data;
+    private FirebirdConnection dc;
 
 
     @Override
@@ -36,6 +46,33 @@ public class Controller implements Initializable {
 
 
         }
+    }
+
+
+    @FXML
+    private void loadDataFromDatabase(ActionEvent event) {
+        try {
+            Connection conn = dc.Connector();
+            data = FXCollections.observableArrayList();
+            // Execute query and store result in a resultset
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM subject");
+            while (rs.next()) {
+                //get string from db,whichever way
+                data.add(new UserDetails(rs.getString(2)));
+            }
+
+        } catch (SQLException ex) {
+            System.err.println("Error"+ex);
+        }
+
+        //Set cell value factory to tableview.
+        //NB.PropertyValue Factory must be the same with the one set in model class.
+
+        column_name.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        tableUser.setItems(null);
+        tableUser.setItems(data);
+
     }
 
 
