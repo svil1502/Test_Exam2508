@@ -9,35 +9,46 @@ import javafx.beans.property.StringProperty;
  */
 public class UserDetails {
 
-    private final StringProperty name;
+    private final StringProperty textv;
+    private final StringProperty text;
 
     //Default constructor
 
-    public UserDetails(String name) {
+    public UserDetails(String textv, String text) {
 
-        this.name = new SimpleStringProperty(name);
+        this.textv = new SimpleStringProperty(textv);
+        this.text = new SimpleStringProperty(text);
 
     }
 
     //Getters
 
-    public String getname() {
-        return name.get();
+    public String gettextv() {
+        return textv.get();
+    }
+
+    public String gettext() {
+        return text.get();
     }
 
 
     //Setters
 
-    public void setname(String value) {
-        name.set(value);
+    public void settextv(String value) {
+        textv.set(value);
+    }
+    public void settext(String value) {
+        text.set(value);
     }
 
 
 
     //Property values
-
-    public StringProperty nameProperty() {
-        return name;
+    public StringProperty textvProperty() {
+        return textv;
+    }
+    public StringProperty textProperty() {
+        return text;
     }
 
 

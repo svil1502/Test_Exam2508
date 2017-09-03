@@ -6,14 +6,22 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Label fx:id="isConnected" layoutX="206.0" layoutY="82.0" text="Status" />
-      <TableView fx:id="tableUser" layoutX="126.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0">
+      <Label fx:id="isConnected" layoutX="38.0" layoutY="27.0" text="Status" />
+      <TableView fx:id="tableUser" layoutX="7.0" layoutY="51.0" prefHeight="203.0" prefWidth="363.0">
         <columns>
-          <TableColumn fx:id="column_name" prefWidth="199.0" text="Subject" />
+          <TableColumn fx:id="column_id" prefWidth="98.0" text="id" />
+            <TableColumn fx:id="column_name" prefWidth="300.0" text="Subject" />
         </columns>
       </TableView>
-      <Button fx:id="btnLoad" layoutX="177.0" layoutY="347.0" mnemonicParsing="false" onAction="#loadDataFromDatabase" text="Load" />
+      <Button fx:id="btnLoad" layoutX="125.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadDataFromDatabase" text="Load" />
+      <TableView fx:id="tableOUser" layoutX="7.0" layoutY="264.0" prefHeight="122.0" prefWidth="363.0">
+        <columns>
+          <TableColumn fx:id="column_oid" prefWidth="75.0" text="V" />
+          <TableColumn fx:id="column_oidname" prefWidth="75.0" text="O" />
+            <TableColumn fx:id="column_oname" prefWidth="209.0" text="T" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
